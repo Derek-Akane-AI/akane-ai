@@ -1,4 +1,9 @@
 # akane-ai
+![AKANE AI Dashboard](akane-dashboard.png)
+
+> **AKANE Dashboard — Concept Prototype**
+>
+> A personalized AI workspace combining daily planning, work, personal responsibilities, wellness, interests, and connected information into one intelligent view.
 # AKANE
 ### Your life. One intelligent space.
 
