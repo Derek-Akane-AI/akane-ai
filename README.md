@@ -6,6 +6,13 @@
 > A personalized AI workspace combining daily planning, work, personal responsibilities, wellness, interests, and connected information into one intelligent view.
 # AKANE
 ### Your life. One intelligent space.
+## Live Demo
+
+🌐 **[Launch AKANE](https://derek-akane-ai.github.io/akane-ai/)**
+
+Explore the interactive AKANE prototype, including AKANE Pulse, daily planning, task management, contextual assistant modes, wellness check-ins, journaling, and simulated AI interactions.
+
+> AKANE is currently an interactive front-end prototype. AI responses and connected-service data are simulated while the product architecture and integrations are under development.
 
 **AKANE** is a personal AI Life & Work Assistant designed to bring your schedule, work responsibilities, personal tasks, reminders, wellness, interests, and daily planning into one intelligent workspace.
 
