@@ -1,5 +1,5 @@
 # akane-ai
-![AKANE AI Dashboard](akane-dashboard.png)
+![AKANE AI Dashboard](Panel de control futurista de Akane.png)
 
 > **AKANE Dashboard — Concept Prototype**
 >
