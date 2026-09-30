@@ -1,7 +1,596 @@
-akane-ai/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── assets/
-    └── akane-avatar.png
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AKANE — Your Life. One Intelligent Space.</title>
+
+  <meta
+    name="description"
+    content="AKANE is a personal AI Life & Work Assistant designed to organize what matters and make room for life."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-mark">A</div>
+
+      <div>
+        <h1>AKANE</h1>
+        <p>Your life. One intelligent space.</p>
+      </div>
+    </div>
+
+    <nav class="navigation">
+
+      <button class="nav-item active" data-section="today">
+        <span>◉</span>
+        Today
+      </button>
+
+      <button class="nav-item" data-section="calendar">
+        <span>▦</span>
+        Calendar
+      </button>
+
+      <button class="nav-item" data-section="tasks">
+        <span>✓</span>
+        Tasks
+      </button>
+
+      <button class="nav-item" data-section="work">
+        <span>◆</span>
+        Work
+      </button>
+
+      <button class="nav-item" data-section="personal">
+        <span>♥</span>
+        Personal
+      </button>
+
+      <button class="nav-item" data-section="wellness">
+        <span>＋</span>
+        Wellness
+      </button>
+
+      <button class="nav-item" data-section="journal">
+        <span>✎</span>
+        Journal
+      </button>
+
+      <button class="nav-item" data-section="discover">
+        <span>✦</span>
+        Discover
+      </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <button class="nav-item" data-section="settings">
+        <span>⚙</span>
+        Settings
+      </button>
+
+      <div class="prototype-label">
+        AKANE Prototype v0.1
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN APPLICATION -->
+  <main class="app">
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+      <div>
+        <p class="eyebrow">GOOD EVENING</p>
+        <h2>Welcome back, Derek.</h2>
+        <p class="subtitle">
+          Here's what the rest of your day looks like.
+        </p>
+      </div>
+
+      <div class="topbar-info">
+        <span id="current-date">Wednesday, September 30</span>
+        <span class="status-dot"></span>
+        <span>AKANE online</span>
+      </div>
+
+    </header>
+
+
+    <!-- TODAY SECTION -->
+    <section id="today" class="section active-section">
+
+      <!-- AKANE PULSE -->
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR DAY AT A GLANCE</p>
+          <h3>AKANE Pulse</h3>
+        </div>
+
+        <button class="secondary-button" id="refresh-pulse">
+          Refresh Pulse
+        </button>
+      </div>
+
+
+      <div class="pulse-grid">
+
+        <article class="pulse-card now">
+          <span class="pulse-label">NOW</span>
+
+          <h4>Wrap up today's priorities</h4>
+
+          <p>
+            You have one important work task left before your evening opens up.
+          </p>
+
+          <button class="card-action" data-message="Show me what I need to finish.">
+            View priority
+          </button>
+        </article>
+
+
+        <article class="pulse-card">
+          <span class="pulse-label">NEXT</span>
+
+          <h4>Workout · 5:30 PM</h4>
+
+          <p>
+            Your next scheduled activity is your workout.
+          </p>
+
+          <button class="card-action" data-message="Tell me about my next event.">
+            View schedule
+          </button>
+        </article>
+
+
+        <article class="pulse-card attention">
+          <span class="pulse-label">ATTENTION</span>
+
+          <h4>3 emails need replies</h4>
+
+          <p>
+            Two are work related and one is a personal follow-up.
+          </p>
+
+          <button class="card-action" data-message="Help me with my unanswered emails.">
+            Review
+          </button>
+        </article>
+
+
+        <article class="pulse-card">
+          <span class="pulse-label">LATER</span>
+
+          <h4>Groceries</h4>
+
+          <p>
+            Your grocery list can wait until after your workout.
+          </p>
+
+          <button class="card-action" data-message="Show me my grocery reminder.">
+            View reminder
+          </button>
+        </article>
+
+
+        <article class="pulse-card for-you">
+          <span class="pulse-label">FOR YOU</span>
+
+          <h4>Something interesting</h4>
+
+          <p>
+            You have some free time tonight. I found something you may enjoy.
+          </p>
+
+          <button class="card-action" data-message="Give me something interesting to read.">
+            Discover
+          </button>
+        </article>
+
+      </div>
+
+
+      <!-- MAIN GRID -->
+      <div class="dashboard-grid">
+
+        <!-- TODAY TIMELINE -->
+        <article class="panel timeline-panel">
+
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">SCHEDULE</p>
+              <h3>Today</h3>
+            </div>
+
+            <button class="icon-button" id="add-event">＋</button>
+          </div>
+
+
+          <div class="timeline">
+
+            <div class="timeline-item completed">
+              <time>9:00 AM</time>
+
+              <div>
+                <h4>Start work</h4>
+                <p>Work</p>
+              </div>
+
+              <span>✓</span>
+            </div>
+
+
+            <div class="timeline-item completed">
+              <time>10:30 AM</time>
+
+              <div>
+                <h4>Client meeting</h4>
+                <p>Work · 45 min</p>
+              </div>
+
+              <span>✓</span>
+            </div>
+
+
+            <div class="timeline-item completed">
+              <time>12:30 PM</time>
+
+              <div>
+                <h4>Lunch</h4>
+                <p>Personal</p>
+              </div>
+
+              <span>✓</span>
+            </div>
+
+
+            <div class="timeline-item current">
+              <time>4:30 PM</time>
+
+              <div>
+                <h4>Finish priority task</h4>
+                <p>Work · High priority</p>
+              </div>
+
+              <span class="live-badge">NOW</span>
+            </div>
+
+
+            <div class="timeline-item">
+              <time>5:30 PM</time>
+
+              <div>
+                <h4>Workout</h4>
+                <p>Wellness · 60 min</p>
+              </div>
+            </div>
+
+
+            <div class="timeline-item">
+              <time>7:00 PM</time>
+
+              <div>
+                <h4>Groceries</h4>
+                <p>Personal</p>
+              </div>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- WORK / PERSONAL -->
+        <div class="stack">
+
+          <article class="panel">
+
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">WORK</p>
+                <h3>Still on your plate</h3>
+              </div>
+
+              <span class="counter">3</span>
+            </div>
+
+
+            <label class="task">
+              <input type="checkbox">
+              <span>
+                <strong>Finish project follow-up</strong>
+                <small>High priority</small>
+              </span>
+            </label>
+
+
+            <label class="task">
+              <input type="checkbox">
+              <span>
+                <strong>Reply to client email</strong>
+                <small>Today</small>
+              </span>
+            </label>
+
+
+            <label class="task">
+              <input type="checkbox">
+              <span>
+                <strong>Review tomorrow's schedule</strong>
+                <small>Before end of day</small>
+              </span>
+            </label>
+
+          </article>
+
+
+          <article class="panel">
+
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">PERSONAL</p>
+                <h3>For later</h3>
+              </div>
+            </div>
+
+
+            <label class="task">
+              <input type="checkbox">
+              <span>
+                <strong>Buy groceries</strong>
+                <small>After workout</small>
+              </span>
+            </label>
+
+
+            <label class="task">
+              <input type="checkbox">
+              <span>
+                <strong>Plan tomorrow</strong>
+                <small>Evening</small>
+              </span>
+            </label>
+
+          </article>
+
+        </div>
+
+
+        <!-- AKANE -->
+        <article class="panel akane-panel">
+
+          <div class="akane-image-wrap">
+
+            <img
+              src="assets/akane-avatar.png"
+              alt="Akane AI Assistant"
+              class="akane-avatar"
+            >
+
+          </div>
+
+
+          <div class="akane-content">
+
+            <p class="eyebrow">AKANE</p>
+
+            <h3>Your evening is manageable.</h3>
+
+            <p>
+              Finish your priority task, and your schedule becomes much lighter.
+              Your workout is next at 5:30 PM.
+            </p>
+
+
+            <div class="mode-selector">
+
+              <button class="mode active" data-mode="balanced">
+                Balanced
+              </button>
+
+              <button class="mode" data-mode="work">
+                Work
+              </button>
+
+              <button class="mode" data-mode="focus">
+                Focus
+              </button>
+
+              <button class="mode" data-mode="relax">
+                Relax
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <!-- WELLNESS -->
+      <article class="panel wellness-panel">
+
+        <div>
+          <p class="eyebrow">DAILY CHECK-IN</p>
+          <h3>How are you feeling?</h3>
+        </div>
+
+
+        <div class="mood-options">
+
+          <button class="mood" data-mood="tired">Tired</button>
+
+          <button class="mood" data-mood="stressed">Stressed</button>
+
+          <button class="mood" data-mood="okay">Okay</button>
+
+          <button class="mood" data-mood="good">Good</button>
+
+          <button class="mood" data-mood="great">Great</button>
+
+        </div>
+
+      </article>
+
+
+      <!-- ASK AKANE -->
+      <article class="ask-akane">
+
+        <div class="ask-avatar">A</div>
+
+        <div class="ask-content">
+
+          <div id="akane-response" class="akane-response">
+            What can I help you with?
+          </div>
+
+
+          <form id="akane-form">
+
+            <input
+              id="akane-input"
+              type="text"
+              placeholder="Ask Akane anything..."
+              autocomplete="off"
+            >
+
+            <button type="submit">
+              Ask Akane
+            </button>
+
+          </form>
+
+
+          <div class="quick-prompts">
+
+            <button data-prompt="What's next?">
+              What's next?
+            </button>
+
+            <button data-prompt="Organize my afternoon.">
+              Organize my afternoon
+            </button>
+
+            <button data-prompt="What haven't I finished?">
+              Unfinished tasks
+            </button>
+
+            <button data-prompt="Help me plan tomorrow.">
+              Plan tomorrow
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- PLACEHOLDER SECTIONS -->
+
+    <section id="calendar" class="section">
+      <div class="empty-state">
+        <p class="eyebrow">CALENDAR</p>
+        <h2>Your time, intelligently organized.</h2>
+        <p>Calendar functionality will be added in the next prototype stage.</p>
+      </div>
+    </section>
+
+
+    <section id="tasks" class="section">
+      <div class="empty-state">
+        <p class="eyebrow">TASKS</p>
+        <h2>Everything that needs your attention.</h2>
+        <p>Work and personal tasks will live together here.</p>
+      </div>
+    </section>
+
+
+    <section id="work" class="section">
+      <div class="empty-state">
+        <p class="eyebrow">WORK</p>
+        <h2>Work without losing sight of life.</h2>
+        <p>Projects, meetings, email and follow-ups will appear here.</p>
+      </div>
+    </section>
+
+
+    <section id="personal" class="section">
+      <div class="empty-state">
+        <p class="eyebrow">PERSONAL</p>
+        <h2>Make room for life.</h2>
+        <p>Personal commitments, errands and plans will appear here.</p>
+      </div>
+    </section>
+
+
+    <section id="wellness" class="section">
+      <div class="empty-state">
+        <p class="eyebrow">WELLNESS</p>
+        <h2>Your schedule should work with you.</h2>
+        <p>Fitness, food and wellness tools are coming next.</p>
+      </div>
+    </section>
+
+
+    <section id="journal" class="section">
+      <div class="empty-state">
+        <p class="eyebrow">JOURNAL</p>
+        <h2>How was your day?</h2>
+
+        <textarea
+          class="journal-input"
+          placeholder="Write whatever is on your mind..."
+        ></textarea>
+
+        <button class="primary-button">
+          Save Journal Entry
+        </button>
+      </div>
+    </section>
+
+
+    <section id="discover" class="section">
+      <div class="empty-state">
+        <p class="eyebrow">DISCOVER</p>
+        <h2>A little space for curiosity.</h2>
+        <p>Sports, markets, travel, videos and articles will appear here.</p>
+      </div>
+    </section>
+
+
+    <section id="settings" class="section">
+      <div class="empty-state">
+        <p class="eyebrow">SETTINGS</p>
+        <h2>Make AKANE yours.</h2>
+        <p>Modes, preferences, privacy and future connectors will live here.</p>
+      </div>
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
