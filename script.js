@@ -31,7 +31,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ---------- LIVE DATE ---------- */
+/* ---------- DYNAMIC TIME OF DAY ---------- */
 
+const timeGreeting = document.getElementById("time-greeting");
+const mainGreeting = document.getElementById("main-greeting");
+const dayMessage = document.getElementById("day-message");
+
+const currentHour = new Date().getHours();
+
+let period = "evening";
+
+if (currentHour >= 5 && currentHour < 12) {
+  period = "morning";
+}
+
+else if (currentHour >= 12 && currentHour < 18) {
+  period = "afternoon";
+}
+
+else {
+  period = "evening";
+}
+
+
+if (period === "morning") {
+
+  if (timeGreeting) {
+    timeGreeting.textContent = "GOOD MORNING";
+  }
+
+  if (mainGreeting) {
+    mainGreeting.textContent = "Good morning, Derek.";
+  }
+
+  if (dayMessage) {
+    dayMessage.textContent =
+      "Here's your day. Let's focus on what matters.";
+  }
+
+}
+
+
+if (period === "afternoon") {
+
+  if (timeGreeting) {
+    timeGreeting.textContent = "GOOD AFTERNOON";
+  }
+
+  if (mainGreeting) {
+    mainGreeting.textContent = "Good afternoon, Derek.";
+  }
+
+  if (dayMessage) {
+    dayMessage.textContent =
+      "Here's where your day stands and what's coming next.";
+  }
+
+}
+
+
+if (period === "evening") {
+
+  if (timeGreeting) {
+    timeGreeting.textContent = "GOOD EVENING";
+  }
+
+  if (mainGreeting) {
+    mainGreeting.textContent = "Good evening, Derek.";
+  }
+
+  if (dayMessage) {
+    dayMessage.textContent =
+      "Let's finish what matters and make room for your evening.";
+  }
+
+}
   const dateElement = document.getElementById("current-date");
 
   if (dateElement) {
